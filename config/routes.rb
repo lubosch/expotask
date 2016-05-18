@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+  devise_for :users, :controllers => {omniauth_callbacks: 'omniauth_callbacks'}
 
   root 'pages#index'
+
+  namespace :api do
+    resource :dashboards, only: [] do
+      get :customer_journey, on: :collection
+      get :actual_status, on: :collection
+
+    end
+
+  end
 
 
   get '/profile' => 'users#profile', :as => :profile
