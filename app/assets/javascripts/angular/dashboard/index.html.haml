@@ -1,25 +1,15 @@
 .section.col-xs-12
   .customer-journey
+    %h4 CUSTOMER JOURNEY
+  %canvas#customer-journey.char.chart-bar{'chart-data': 'customerJourney.data', 'chart-labels': 'customerJourney.labels', height: 50, width: 200}
 .col-xs-12
-  .section.col-xs-4
-    .h3 IPSUM METRIC
-    {{ipsumMetric.total}}
-  .section.col-xs-4
-    .h3 BLOG VISITS
-    .col-xs-12.row
-      .col-xs-8
-        {{blogVisits}}
-      .col-xs-4
-        .bar-small
-    .goal-bar
-  .section.col-xs-4
-    .h3 HP VISITS
-    .col-xs-12.row
-      .col-xs-8
-        {{ipsum-metric}}
-      .col-xs-4
-        .bar-small
-  .section.col-xs-4
-    .h3 INFINARIO VALUATION
-    {{infinarionValuation.total}}
-    .goal-bar
+  .actual-status{title: 'ipsumMetric.name', value: 'infinarioValuation.total'}
+  .actual-status{title: 'blogVisits.name', value: 'blogVisits.total', 'progress-val': 'blogVisits.total / blogVisits.goal * 100', history: 'blogVisits.history'}
+  .actual-status{title: 'hpVisits.name', value: 'hpVisits.total', history: 'hpVisits.history'}
+  .actual-status{title: 'infinarioValuation.name', value: 'infinarioValuation.total', 'progress-val': 'infinarioValuation.total / infinarioValuation.goal * 100'}
+.col-xs-12
+  .section.col-xs-6
+    %h4 CREATED FEATURES
+    %canvas#funnel-chart.char.chart-pie{'chart-data': 'data', 'chart-labels': 'labels'}
+  .section.col-xs-6
+    .funnel-table

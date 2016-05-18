@@ -1,0 +1,15 @@
+angular.module('expotask').directive 'actualStatus', ->
+  return {
+    restrict: 'AC'
+    scope: {
+      value: '='
+      title: '='
+      progressVal: '='
+      history: '='
+    },
+    replace: false
+    templateUrl: "<%= asset_path('angular/dashboard/actual_status.html') %>"
+
+
+  }
+

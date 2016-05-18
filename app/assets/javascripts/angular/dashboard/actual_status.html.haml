@@ -1,0 +1,17 @@
+.section.col-xs-3
+  .h4.text-capitalize {{title}}
+  .col-xs-12.row
+    .col-xs-6
+      .actual-text-big
+        {{value}}
+      .text-info{'ng-show': 'history.data'}
+        Last {{history.data.length}} days
+    .col-xs-6{'ng-show': 'history.data'}
+      %canvas#funnel-chart.char.chart-bar{'chart-data': 'history.data', 'chart-labels': 'history.labels'}
+  .goal-bar.row.col-xs-12{'ng-show': 'progressVal'}
+    .col-xs-3
+      GOAL
+    .col-xs-7
+      %tek-progress-bar{'ng-model': 'progressVal'}
+    .col-xs-2
+      {{progressVal}}
